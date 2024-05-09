@@ -44,7 +44,7 @@ export default (props) => {
         sensitivity: 2,
       }}
       freeMode={true}
-      loop={true}
+      // loop={true}
       modules={[Keyboard, Pagination, Navigation, Mousewheel, FreeMode]}
     >
       {projects.map((project, index) => (

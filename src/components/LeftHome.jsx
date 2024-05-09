@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LeftHome = ({ title, content, imageUrl1, imageUrl2, linkUrl }) => {
   return (
-    <div className="flex flex-wrap items-center justify-between h-[80vh] px-10 py-20">
+    <div className="flex flex-wrap items-center justify-between h-[80vh] px-10">
       <div className="image w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0 space-x-4">
         <div className="relative">
           <img

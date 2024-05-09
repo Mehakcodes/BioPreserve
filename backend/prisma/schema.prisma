@@ -26,3 +26,9 @@ model User {
     nationality String
     accountType String
 }
+
+
+
+
+
+

@@ -7,30 +7,40 @@ const MainNav = ({isLogged, setIsLogged}) => {
       path: "/",
       title: "Home",
     },
-    {
-      path: "/E-Banking",
-      title: "E-Banking",
-    },
+    // {
+    //   path: "/E-Banking",
+    //   title: "E-Banking",
+    // },
     {
       path: "/green_investment/green_projects",
       title: "Green Investment",
     },
-    {
-      path: "/CreditHub",
-      title: "CreditHub",
-    },
+    // {
+    //   path: "/CreditHub",
+    //   title: "CreditHub",
+    // },
     {
       path: "/Impact",
       title: "Impact",
     },
     {
-      path: "/CarbonCoin",
-      title: "Carbon Offset Tracker",
+      path: "/Projects",
+      title: "Projects",
     },
+
     {
-      path: "/CarbonTrading",
-      title: "Carbon Trading"
+      path: "/Publish",
+      title: "Publish your campaign",
     },
+
+    // {
+    //   path: "/CarbonCoin",
+    //   title: "Carbon Offset Tracker",
+    // },
+    // {
+    //   path: "/CarbonTrading",
+    //   title: "Carbon Trading"
+    // },
     {
       path: "/Profile",
       title: "Profile",

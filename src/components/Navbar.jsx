@@ -13,22 +13,31 @@ const Navbar = () => {
       path: "/green_investment/green_projects",
       title: "Green Investment",
     },
+    // {
+    //   path: "/CreditHub",
+    //   title: "CreditHub",
+    // },
     {
-      path: "/CreditHub",
-      title: "CreditHub",
+      path: "/Projects",
+      title: "Projects",
+    },
+
+    {
+      path: "/Publish",
+      title: "Publish your campaign",
     },
     {
       path: "/Impact",
       title: "Impact",
     },
-    {
-      path: "/CarbonCoin",
-      title: "Carbon Offset Tracker",
-    },
-    {
-      path: "/CarbonTrading",
-      title: "Carbon Trading"
-    },
+    // {
+    //   path: "/CarbonCoin",
+    //   title: "Carbon Offset Tracker",
+    // },
+    // {
+    //   path: "/CarbonTrading",
+    //   title: "Carbon Trading"
+    // },
     {
       path: "/Login",
       title: "Login",
@@ -40,7 +49,7 @@ const Navbar = () => {
 
   ];
   return (
-    <nav className="main-nav flex place-content-between bg-black text-white items-center h-14 text-[1.2rem]" >
+    <nav className=" main-nav flex place-content-between bg-black text-white items-center h-14 text-[1.2rem]" >
     <h1 className="px-10 font-bold text-xl">EcoFin Horizon</h1>
     <div className="flex h-full items-stretch">
         {

@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import FundTransfer from "./components/ebankingpages/FundTransfer"
+import Projects from "./new_pages/Projects"
+import Publish from "./new_pages/Publish";
 
 // import './pages/Profile';
 import PersonalDetails from "./components/PersonalDetails";
@@ -61,6 +63,8 @@ const [isLogged, setIsLogged] = useState(false);
           <Route path="/CreditHub/green_build" element={<Greenbuild />} />
           <Route path="/CreditHub/raise_cap" element={<RaiseCap />} />
           <Route path="/CreditHub/vehicle" element={<Vehicle />} />
+          <Route path="/Projects" element={<Projects />} />
+          <Route path="/Publish" element={<Publish />} />
 
           <Route path="/E-Banking" element={<EBankingPage />} />
           <Route path="/CarbonTrading" element={<CarbonTrading />} />

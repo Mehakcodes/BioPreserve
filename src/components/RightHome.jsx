@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const RightHome = ({ title, content, imageUrl1, imageUrl2, linkUrl }) => {
   return (
-    <div className="flex flex-wrap items-center justify-between h-[80vh] px-10 py-20 ">
+    <div className="flex flex-wrap items-center justify-between h-[80vh] px-10 ">
       <div className="w-full md:w-1/2 flex flex-col items-center justify-center pr-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
           {title}
