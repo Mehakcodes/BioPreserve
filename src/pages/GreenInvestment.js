@@ -11,14 +11,6 @@ const GreenInvestment = () => {
         {
             title: "Renewable Energy Funds",
             path: "/Green_Investment/Renewable_Energy_Funds"
-        },
-        {
-            title: "Green Bonds",
-            path: "/Green_Investment/Green_Bonds"
-        },
-        {
-            title: "Green Stocks",
-            path: "/Green_Investment/Green_Stocks"
         }
        
     ]

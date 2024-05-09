@@ -8,14 +8,6 @@ function Profile() {
     {
         path:'personal_details',
         title:'Personal Details'
-    },
-    {
-        path:'customer_details',
-        title:'Customer Details'
-    },
-    {
-        path:'account_details',
-        title:'Account Details'
     }
 ]
 

@@ -36,18 +36,6 @@ const Testimonial = () => {
     },
   ];
 
-  // const nextSlide = () => {
-  //   if (carouselRef.current) {
-  //     carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
-  //   }
-  // };
-
-  // const prevSlide = () => {
-  //   if (carouselRef.current) {
-  //     carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth;
-  //   }
-  // };
-
   return (
     <div className="w-full pb-10  bg-gray-100 pt-8 px-10 relative">
       <h1 className="text-5xl font-medium text-center mb-8">
@@ -74,19 +62,7 @@ const Testimonial = () => {
           
           ))}
         </div>
-        {/* Navigation buttons */}
-        {/* <button
-          className="prev-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-gray-700 rounded-full shadow-md px-3 py-2"
-          onClick={prevSlide}
-        >
-          &#10094;
-        </button>
-        <button
-          className="next-btn absolute top-1/2 right-4 transform -translate-y-1/2 bg-white text-gray-700 rounded-full shadow-md px-3 py-2"
-          onClick={nextSlide}
-        >
-          &#10095;
-        </button> */}
+      
       </div>
     </div>
   );
