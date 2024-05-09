@@ -115,9 +115,9 @@ const Signup = ( {isLogged, setIsLogged}) => {
   };
 
   return (
-    <div className="whole-form-page">
-      <div className="pt-24 px-16 pb-14">
-        <form onSubmit={handleSubmit} className="main bg-white form-login">
+    <div className=" whole-form-page py-20 w-full">
+      <div className="flex w-full justify-center">
+        <form onSubmit={handleSubmit} className=" main bg-white">
           <div className="font-bold text-3xl pb-6">Sign Up for your account</div>
           <label htmlFor="name" className="pb-2 text-lg">Name</label>
           <input
