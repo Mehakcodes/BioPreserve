@@ -12,6 +12,9 @@ const InvCard = (props) => {
         event.currentTarget.classList.remove('shadow-md');
       }
 
+
+ 
+
     return (  
         <div className="w-[25rem] h-[32rem] mx-1">
         <div className="card rounded-xl p-4 w-[25rem] h-[32rem] flex flex-col transition-all ease-in-out bg-white " onMouseOver={MouseOver} onMouseOut={MouseOut}>

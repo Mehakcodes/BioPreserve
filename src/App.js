@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import ImpactPage from "./pages/ImpactPage";
+import Invest from "./pages/Invest";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
@@ -61,6 +62,8 @@ const [isLogged, setIsLogged] = useState(false);
           </Route>
 
           <Route path="Transactions" element={<Transactions />} />
+          <Route path="Invest" element={<Invest/>} />
+
         </Routes>
       </div>
       <Footer/>
