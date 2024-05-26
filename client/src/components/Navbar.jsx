@@ -36,14 +36,6 @@ const Navbar = () => {
     //   path: "/CarbonTrading",
     //   title: "Carbon Trading"
     // },
-    {
-      path: "/Login",
-      title: "Login",
-    },
-    {
-      path: "/Signup",
-      title: "Sign Up",
-    }
 
   ];
   return (

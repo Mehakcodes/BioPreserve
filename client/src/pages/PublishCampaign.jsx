@@ -35,6 +35,7 @@ const PublishCampaign = ({onProjectAdded}) => {
       .startNewProject(
         formData.title,
         formData.description,
+        formData.imageUrl,
         formData.durationInDays,
         web3.utils.toWei(formData.amountToRaise, 'ether'),
         web3.utils.toWei(formData.minimumContribution, 'ether')
@@ -62,7 +63,6 @@ const PublishCampaign = ({onProjectAdded}) => {
         <div className="mb-4 text-xl">
           <label htmlFor="projectTitle" className="block mb-1">Project Name</label>
           <input 
-          
             type="text" 
             id="projectTitle" 
             name="projectTitle" 
@@ -95,7 +95,7 @@ const PublishCampaign = ({onProjectAdded}) => {
         <div className="mb-4 text-xl">
             <label htmlFor="goalAmount" className="block mb-1">Goal Amount</label>
             <input 
-                type="number" 
+                type="text" 
                 id="goalAmount" 
                 name="goalAmount" 
                 onChange={handleChange} 
@@ -117,12 +117,12 @@ const PublishCampaign = ({onProjectAdded}) => {
         <div className="mb-4 text-xl">
             <label htmlFor="deadline" className="block mb-1">Deadline</label>
             <input 
-                type="date" 
+                type="number" 
                 id="deadline" 
                 name="deadline" 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
-                placeholder="Deadline" 
+                placeholder="Number of days" 
             />
         </div>
     
