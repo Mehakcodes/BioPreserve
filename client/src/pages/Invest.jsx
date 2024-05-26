@@ -83,23 +83,24 @@ const Invest = () => {
           <h1 className="text-3xl">Project Description</h1>
           <p className="my-5">{details.project_description}</p>
           <p>
-            <p className="">Goal Amount: {details.project_goal} </p>
-            <p className="">Minimum Donation: {details.project_min}</p>
+            <p className="text-2xl font-bold">Goal Amount: {details.project_goal} </p>
+            <p className="text-2xl font-bold">Minimum Donation: {details.project_min}</p>
           </p>
         </div>
 
         <div className="w-min-[30rem] flex  grow justify-center py-10">
 
         {accounts.length > 0 ? (
-          <div className="form flex flex-col w-fit items-center  justify-center border shadow-md rounded-xl bg-green-100/50 py-5 px-10">
+          <div className="form flex flex-col w-fit items-center  justify-center border shadow-md rounded-xl bg-[#1d1919] py-5 px-10">
             <p>Connected Account: {accounts[0]}</p>
-            <h1 className="mb-3 text-lg font-semibold">Invest Now</h1>
+            <h1 className="mb-3 text-3xl font-semibold">Invest Now</h1>
             <form action="" method="post" className="flex flex-col">
-              <div className="my-2">
-                <label htmlFor="amount" className=" me-3">
+              <div className="my-2 flex justify-between">
+                <label htmlFor="amount" className=" me-3 text-xl">
                   Amount
                 </label>
                 <input
+                 className="bg-[#4c4848] px-3 mx-3 rounded-md h-8"
                   type="text"
                   name="amount"
                   id="amount"
