@@ -1,6 +1,6 @@
 # DApp for Biodiversity Conservation and Cultural Heritage Preservation
 
-![Project Banner](path_to_your_image/banner.jpg)
+![Project Banner](https://res.cloudinary.com/debw7vpqa/image/upload/v1716709875/sswjeww63jn5orfftoam.png)
 
 ## Overview
 Our solution is a decentralized application (DApp) designed to support biodiversity conservation and cultural heritage preservation. This platform leverages blockchain technology to provide a transparent, secure, and engaging way for users to contribute directly to biodiversity conservation efforts and cultural heritage sites projects. By eliminating traditional crowdfunding inefficiencies and trust issues, we empower users to make a real impact. Additionally, a dynamic calendar lists upcoming biodiversity events, allowing users to stay informed and participate actively. In return for their contributions, users receive tokens that can be redeemed for various rewards within the platform's ecosystem, incentivizing continued engagement and support.
