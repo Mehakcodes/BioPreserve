@@ -1,28 +1,58 @@
 import React, { useState } from 'react';
+import Web3 from 'web3';
+import FundRaisingContract from "../contracts/FundRaising.json";
+import ProjectContract from "../contracts/Project.json";
 
-const PublishCampaign = () => {
-    const [formData, setFormData] = useState({
-        projectTitle: '',
-        projectDesc: '',
-        projectImageURL: '',
-        goalAmount: '',
-        minimumContribution: '',
-        walletAddress: '',
-        deadline: ''
-      });
-    
-      const handleChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value
-        });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add form submission logic here
-        console.log(formData);
-      };
+const PublishCampaign = ({onProjectAdded}) => {
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    durationInDays: '',
+    imageUrl: '',
+    amountToRaise: '',
+    minimumContribution: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545');
+    const accounts = await web3.eth.requestAccounts();
+    const contractAddress = FundRaisingContract.networks.address;
+    const contractABI = FundRaisingContract.abi;
+
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    await contract.methods
+      .startNewProject(
+        formData.title,
+        formData.description,
+        formData.durationInDays,
+        web3.utils.toWei(formData.amountToRaise, 'ether'),
+        web3.utils.toWei(formData.minimumContribution, 'ether')
+      )
+      .send({ from: accounts[0] });
+
+    onProjectAdded();
+  };
+    // const [formData, setFormData] = useState({
+    //     projectTitle: '',
+    //     projectDesc: '',
+    //     projectImageURL: '',
+    //     goalAmount: '',
+    //     minimumContribution: '',
+    //     walletAddress: '',
+    //     deadline: ''
+    //   });
+
   return (
     <div className='bg-black'>
     <div className="w-3/4 mx-auto p-4 text-white shadow-lg rounded-lg py-16 bg-black ">
@@ -36,7 +66,6 @@ const PublishCampaign = () => {
             type="text" 
             id="projectTitle" 
             name="projectTitle" 
-            value={formData.projectTitle} 
             onChange={handleChange} 
             className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
             placeholder="Project Name" 
@@ -47,7 +76,6 @@ const PublishCampaign = () => {
             <textarea 
                 id="projectDesc" 
                 name="projectDesc" 
-                value={formData.projectDesc} 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2 h-40" 
                 placeholder="Project Description"
@@ -59,7 +87,6 @@ const PublishCampaign = () => {
                 type="text"
                 id="projectImageURL"
                 name="projectImageURL"
-                value={formData.projectImageURL}
                 onChange={handleChange}
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2"
                 placeholder="Project Image URL"
@@ -71,7 +98,6 @@ const PublishCampaign = () => {
                 type="number" 
                 id="goalAmount" 
                 name="goalAmount" 
-                value={formData.goalAmount} 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
                 placeholder="Goal Amount (₹)" 
@@ -83,22 +109,9 @@ const PublishCampaign = () => {
                 type="number" 
                 id="minimumContribution" 
                 name="minimumContribution" 
-                value={formData.minimumContribution} 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
                 placeholder="Minimum Contribution (₹)" 
-            />
-        </div>
-        <div className="mb-4 text-xl">
-            <label htmlFor="walletAddress" className="block mb-1">Wallet Address</label>
-            <input 
-                type="text" 
-                id="walletAddress" 
-                name="walletAddress" 
-                value={formData.walletAddress} 
-                onChange={handleChange} 
-                className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
-                placeholder="Wallet Address" 
             />
         </div>
         <div className="mb-4 text-xl">
@@ -107,7 +120,6 @@ const PublishCampaign = () => {
                 type="date" 
                 id="deadline" 
                 name="deadline" 
-                value={formData.deadline} 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
                 placeholder="Deadline" 

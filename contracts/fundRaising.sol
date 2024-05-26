@@ -11,6 +11,7 @@ contract FundRaising {
         address projectStarter,
         string projectTitle,
         string projectDescription,
+        string projectImgUrl,
         uint256 durationInDays,
         uint256 amountToRaise,
         uint256 minimumContribution
@@ -31,6 +32,7 @@ contract FundRaising {
     function startNewProject(
         string calldata title,
         string calldata description,
+        string calldata imgUrl,
         uint256 durationInDays,
         uint256 amountToRaise,
         uint256 minimumContribution
@@ -42,6 +44,7 @@ contract FundRaising {
             payable(address(msg.sender)),
             title,
             description,
+            imgUrl,
             minimumContribution
         );
         projects.push(newProject);
@@ -50,6 +53,7 @@ contract FundRaising {
             msg.sender,
             title,
             description,
+            imgUrl,
             minimumContribution,
             deadline,
             amountToRaise

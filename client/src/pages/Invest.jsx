@@ -21,8 +21,8 @@ const Invest = () => {
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
       const networkId = await web3.eth.net.getId();
-      const fundRaisingNetwork = FundRaisingContract.networks[networkId];
-      const projectNetwork = ProjectContract.networks[networkId];
+      const fundRaisingNetwork = FundRaisingContract.networks;
+      const projectNetwork = ProjectContract.networks;
       if (fundRaisingNetwork && projectNetwork) {
         const fundRaisingInstance = new web3.eth.Contract(
           FundRaisingContract.abi,
@@ -102,6 +102,7 @@ const Invest = () => {
                 <input
                   type="text"
                   name="amount"
+                  className="text-black"
                   id="amount"
                   value={contributionAmount}
                   onChange={(e) => setContributionAmount(e.target.value)}
