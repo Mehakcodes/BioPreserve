@@ -105,7 +105,7 @@ By contributing to this platform, you are making a tangible impact on biodiversi
 
 ---
 
-This README was generated with ❤️ by the DApp for Biodiversity Conservation and Cultural Heritage Preservation team.
+This README was generated with ❤️ by the Deew.
 
 
 
