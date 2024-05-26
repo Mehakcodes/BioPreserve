@@ -70,8 +70,8 @@ Our solution is a decentralized application (DApp) designed to support biodivers
 
 ## Project Links
 
-- **Live Demo**: [Live Demo Link](#)
-- **Project Video**: [Documentation Link](#)
+- **Live Demo**: [https://biopreserve.netlify.app/](https://biopreserve.netlify.app/)
+- **Project Video**: [Video Link](#)
 
 ## Screenshots
 
@@ -82,6 +82,8 @@ Our solution is a decentralized application (DApp) designed to support biodivers
 ![Screenshot 2](https://res.cloudinary.com/debw7vpqa/image/upload/v1716710156/cpv0qieqospwbjceoorz.jpg)
 
 ![Screenshot 3](https://res.cloudinary.com/debw7vpqa/image/upload/v1716710209/mcls6g2pydfluq7tf9dv.jpg)
+
+![Screenshot 1](https://res.cloudinary.com/debw7vpqa/image/upload/v1716712457/rrchhzhevrbhek873izs.jpg)
 
 ![Screenshot 4](https://res.cloudinary.com/debw7vpqa/image/upload/v1716710266/lc5ddnszhdnojhhrki8n.jpg)
 
