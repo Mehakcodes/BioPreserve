@@ -70,8 +70,8 @@ Our solution is a decentralized application (DApp) designed to support biodivers
 
 ## Project Links
 
-- **Live Demo**: [https://biopreserve.netlify.app/](https://biopreserve.netlify.app/)
-- **Project Video**: [Video Link](#)
+- **Live Demo**: [https://bio-preserve.netlify.app/](https://bio-preserve.netlify.app/)
+- **Project Video**: [https://youtu.be/-mYx3JtY1iI](https://youtu.be/-mYx3JtY1iI)
 
 ## Screenshots
 
