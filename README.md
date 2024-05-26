@@ -75,8 +75,6 @@ Our solution is a decentralized application (DApp) designed to support biodivers
 
 ## Screenshots
 
-## Screenshots
-
 ![Screenshot 1](https://res.cloudinary.com/debw7vpqa/image/upload/v1716710638/abc/dgrdlxjr2ot599jf2kop.jpg)
 
 ![Screenshot 2](https://res.cloudinary.com/debw7vpqa/image/upload/v1716710156/cpv0qieqospwbjceoorz.jpg)
