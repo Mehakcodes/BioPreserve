@@ -1,21 +1,18 @@
 import { EthProvider } from "./contexts/EthContext";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
-import ImpactPage from "./pages/ImpactPage";
 import Invest from "./pages/Invest";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
-import Projects from "./new_pages/Projects"
-import Publish from "./new_pages/Publish";
+import DonateProject from "./pages/DonateProject";
+import PublishCampaign from "./pages/PublishCampaign";
 import PersonalDetails from "./components/PersonalDetails";
 import Profile from "./pages/Profile";
 import MainNav from "./components/mainnav";
-import GreenInvestment from "./pages/GreenInvestment";
-import GreenProjects from "./components/GreenProjects";
-import RenewableEnergyFunds from "./components/RenewableEnergyFunds";
-import Transactions from "./pages/Transactions";
 import Navbar from "./components/Navbar";
+import Calenderc from "./pages/Calenderc";
+import Store from "./pages/Store";
 import { useState , useEffect} from "react";
 
 
@@ -39,12 +36,14 @@ const [isLogged, setIsLogged] = useState(false);
 
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Projects" element={<Projects />} />
-          <Route path="/Publish" element={<Publish />} />
+        <Route path="/" element={<Home />} />
+          <Route path="/Projects" element={<DonateProject/>} />
+          <Route path="/Publish" element={<PublishCampaign/>} />
+          <Route path="/Upcoming-events" element={<Calenderc />} />
+          <Route path="/store" element={<Store />} />
 
-          <Route path="/Green_Investment" element={<GreenProjects />} />
-          <Route path="/Impact" element={<ImpactPage />} />
+
+         
           <Route path="/Login" element={<Login isLogged={isLogged} setIsLogged={setIsLogged} />} />
           <Route path="/Signup" element={<Signup  isLogged={isLogged} setIsLogged={setIsLogged} />} />
 
@@ -57,16 +56,8 @@ const [isLogged, setIsLogged] = useState(false);
             />
             <Route exact path="" element={<Navigate to="personal_details" />} />
           </Route>
-          <Route path="Green_Investment" element={<GreenInvestment />}>
-            <Route path="Green_Projects" element={<GreenProjects />} />
-            <Route
-              path="Renewable_Energy_Funds"
-              element={<RenewableEnergyFunds />}
-            />
-            <Route path="" element={<Navigate to="Green_Projects" />} />
-          </Route>
-
-          <Route path="Transactions" element={<Transactions />} />
+         
+          {/* <Route path="Transactions" element={<Transactions />} /> */}
           <Route path="Invest" element={<Invest/>} />
 
         </Routes>

@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom";
 const GreenInvestment = () => {
     const sidebar_data = [
         {
-            title: "Green Projects",
+            title: "Biodiversity Conservation Projects",
             path: "/Green_Investment/Green_Projects"
         },
         {
-            title: "Renewable Energy Funds",
+            title: "Heritage Sites Conservation Projects",
             path: "/Green_Investment/Renewable_Energy_Funds"
         }
        

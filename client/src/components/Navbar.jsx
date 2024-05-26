@@ -10,25 +10,23 @@ const Navbar = () => {
     },
 
     {
-      path: "/green_investment/green_projects",
-      title: "Green Investment",
-    },
-    // {
-    //   path: "/CreditHub",
-    //   title: "CreditHub",
-    // },
-    {
       path: "/Projects",
       title: "Projects",
+    },
+    
+    {
+      path: "/Upcoming-events",
+      title: "Upcoming Events",
+    },
+  
+    {
+      path: "/store",
+      title: "Store",
     },
 
     {
       path: "/Publish",
       title: "Publish your campaign",
-    },
-    {
-      path: "/Impact",
-      title: "Impact",
     },
     // {
     //   path: "/CarbonCoin",
@@ -50,7 +48,7 @@ const Navbar = () => {
   ];
   return (
     <nav className=" main-nav flex place-content-between bg-black text-white items-center h-14 text-[1.2rem]" >
-    <h1 className="px-10 font-bold text-xl">EcoFin Horizon</h1>
+    <h1 className="px-10 font-bold text-xl">EcoPreserve Horizon</h1>
     <div className="flex h-full items-stretch">
         {
             NavItems.map((item,index) => (

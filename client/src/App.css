@@ -13,6 +13,54 @@
   }
 }
 
+.black-calendar {
+  background-color: black;
+  color: white;
+}
+
+.black-calendar .rbc-toolbar {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.black-calendar .rbc-month-view,
+.black-calendar .rbc-time-view,
+.black-calendar .rbc-agenda-view {
+  background-color: black;
+}
+
+.black-calendar .rbc-event {
+  background-color: #0a7027;
+  color: white;
+}
+
+.black-calendar .rbc-day-bg {
+  background-color: black;
+}
+
+.black-calendar .rbc-time-header {
+  background-color: black;
+}
+
+.black-calendar .rbc-time-content {
+  background-color: black;
+  border-color: black;
+}
+
+.black-calendar .rbc-header {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.black-calendar .rbc-today {
+  background-color: #73aa6b;
+}
+
+.black-calendar .rbc-current-time-indicator {
+  background-color: red;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import React, { useState } from "react";
+import { IoTimeOutline } from "react-icons/io5";
 import Web3 from "web3";
 import FundRaisingContract from "../contracts/FundRaising.json";
 import ProjectContract from "../contracts/Project.json";
@@ -57,44 +58,75 @@ const Invest = () => {
   const location = useLocation();
   const details = location.state.project;
   return (
-    <div className="w-full h-full px-5">
-      {/* <h1 className="mt-2 text-2xl font-bold">{details.project_name}</h1>
-            <p className="mb-3">
-            {details.company_name}
-            </p>
-            <img src={details.project_image} alt="" className="w-full h-[25rem] md:h-[35rem] rounded-xl object-cover"/>
-            <div className="flex flex-wrap my-4">
+    <div className="w-full h-full px-5 bg-black text-white">
+      <h1 className="pt-10 text-6xl ">{details.project_name}</h1>
+      <p className="mb-10 mt-3 text-xl">{details.company_name}</p>
+      <img
+        src={details.project_image}
+        alt=""
+        className="w-full h-[25rem] md:h-[35rem] rounded-xl object-cover"
+      />
+      {/* <div className="flex flex-wrap my-4">
         <p className="me-2 border-solid border px-2 rounded-xl  hover:bg-green-400/10">{details.project_category}</p>
         <p className="border-solid border px-2 rounded-xl  hover:bg-green-400/10">{details.project_location}</p>
+        </div> */}
+      <div className="flex justify-start items-center my-8 gap-1  ">
+        <p className=" flex items-center gap-1">
+          <IoTimeOutline />
+          {details.project_daysleft} days left
+        </p>
+        <p>|</p>
+        <p> {details.project_percent}% funded </p>
+      </div>
+      <div className="flex justify-between flex-wrap">
+        <div className="min-w-[40rem] max-w-[50rem]">
+          <h1 className="text-3xl">Project Description</h1>
+          <p className="my-5">{details.project_description}</p>
+          <p>
+            <p className="">Goal Amount: {details.project_goal} </p>
+            <p className="">Minimum Donation: {details.project_min}</p>
+          </p>
         </div>
-        <p className="my-5"> 
-            {details.project_description}
-        </p>
-        <p>
-            Green Score - {details.green_score ?? 10}
-            <br/>
-            Carbon Offest-{details.carbon_offset ?? 10}
-        </p>
-        <div className="w-full flex justify-center my-10">
-        <div className="form flex flex-col w-fit items-center  justify-center border shadow-md rounded-xl bg-green-400/5 py-5 px-10">
+
+        <div className="w-min-[30rem] flex  grow justify-center py-10">
+
+        {accounts.length > 0 ? (
+          <div className="form flex flex-col w-fit items-center  justify-center border shadow-md rounded-xl bg-green-100/50 py-5 px-10">
+            <p>Connected Account: {accounts[0]}</p>
             <h1 className="mb-3 text-lg font-semibold">Invest Now</h1>
             <form action="" method="post" className="flex flex-col">
-                <div className="my-2">
-                <label htmlFor="amount" className=" me-3">Amount</label>
-                <input type="text" name="amount" id="amount" placeholder=" Enter Amount"/>
-                </div>
-                <div className="my-2">
-                <label htmlFor="password" className="me-2">Re-enter Password </label>
-                <input type="password" placeholder="Enter Password"/>
-                </div>
-                <div className="flex justify-center">
-                <button type="submit" className="border rounded-md py-2 m-3 px-6 w-fit bg-green-900/50 text-white ">Invest</button>
-                </div>
-                
+              <div className="my-2">
+                <label htmlFor="amount" className=" me-3">
+                  Amount
+                </label>
+                <input
+                  type="text"
+                  name="amount"
+                  id="amount"
+                  value={contributionAmount}
+                  onChange={(e) => setContributionAmount(e.target.value)}
+                  placeholder="Enter contribution amount (ETH)"
+                />
+              </div>
+              <div className="flex justify-center">
+                {projectContract && (<button
+                  type="submit"
+                  onClick={contributeToProject}
+                  className="border rounded-md py-2 m-3 px-6 w-fit bg-green-900/50 text-white "
+                >
+                  Contribute
+                </button>)}
+              </div>
             </form>
+          </div>
+        ) : (
+          <button className="border rounded-md py-2 m-3 px-6 w-fit bg-green-900/50 text-white "
+          onClick={initWeb3}>Connect MetaMask</button>
+        )}
+
         </div>
-        </div> */}
-      {accounts.length > 0 ? (
+      </div>
+      {/* {accounts.length > 0 ? (
         <p>Connected Account: {accounts[0]}</p>
       ) : (
         <p>Connect to MetaMask</p>
@@ -108,7 +140,7 @@ const Invest = () => {
       />
       {projectContract && (
         <button onClick={contributeToProject}>Contribute to Project</button>
-      )}
+      )} */}
     </div>
   );
 };

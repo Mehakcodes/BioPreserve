@@ -4,9 +4,9 @@ import { BiSolidHide } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { loginRoute } from '../utils/APIRoutes';
+import { loginRoute } from "../utils/APIRoutes";
 
-const Login = ({isLogged, setIsLogged}) => {
+const Login = ({ isLogged, setIsLogged }) => {
   const navigate = useNavigate();
   const [formDetails, setFormDetails] = useState({
     email: "",
@@ -14,7 +14,7 @@ const Login = ({isLogged, setIsLogged}) => {
   });
   useEffect(() => {
     if (localStorage.getItem("customer")) {
-      navigate('/');
+      navigate("/");
     }
   }, [navigate]);
 
@@ -36,8 +36,8 @@ const Login = ({isLogged, setIsLogged}) => {
         if (data.status === false) {
           toast.error(data.msg, toastOptions);
         } else if (data.status === true) {
-          localStorage.setItem('customer', JSON.stringify(data.user.email));
-          setIsLogged(true); 
+          localStorage.setItem("customer", JSON.stringify(data.user.email));
+          setIsLogged(true);
           navigate("/");
         }
       } catch (error) {
@@ -49,7 +49,10 @@ const Login = ({isLogged, setIsLogged}) => {
   const handleValidation = () => {
     const { email, password } = formDetails;
     if (password.length < 8) {
-      toast.error("Password should be greater than 8 characters.", toastOptions);
+      toast.error(
+        "Password should be greater than 8 characters.",
+        toastOptions
+      );
       return false;
     } else if (email.trim() === "") {
       toast.error("Email is required", toastOptions);
@@ -63,16 +66,28 @@ const Login = ({isLogged, setIsLogged}) => {
     autoClose: 8000,
     theme: "dark",
     pauseOnHover: true,
-    draggable: true
+    draggable: true,
   };
 
   return (
-    <div className="whole-form-page">
-      <div className="pt-24 px-16 pb-14">
-        <form onSubmit={handleSubmit} className="main bg-white form-login">
-          <div className="font-bold text-3xl pb-6">Login to your account</div>
-          <label htmlFor="email" className="pb-2 text-lg">E-mail ID / Customer ID</label>
+    <div className="bg-black text-white">
+      <div className="flex items-center justify-center bg-black text-white ">
+        <form
+          onSubmit={handleSubmit}
+          className="main bg-black text-white  form-login"
+        >
+          <div className="font-bold text-3xl pb-6 text-white">
+            Login to your account
+          </div>
+          <label
+            htmlFor="email"
+            className="pb-2 text-lg"
+            style={{ color: "white" }}
+          >
+            E-mail ID
+          </label>
           <input
+            className="bg-[#1f201f] border-0 border-white pl-3"
             name="email"
             id="email"
             type="email"
@@ -81,27 +96,40 @@ const Login = ({isLogged, setIsLogged}) => {
             onChange={changeHandler}
           />
           <span>
-            <Link to="/forgot-password" className="text-sm text-red-500">Forgot Login ID?</Link>
+            <Link to="/forgot-password" className="text-sm text-red-500">
+              Forgot Login ID?
+            </Link>
           </span>
           <br />
-          <label htmlFor="password" className="pb-2 text-lg">Password</label>
+          <label
+            htmlFor="password"
+            style={{ color: "white" }}
+            className="pb-2 text-lg form-class"
+          >
+            Password
+          </label>~
           <input
+            className="bg-[#1f201f] border-0 border-white pl-3"
+            preventDefault
             name="password"
             id="password"
             type="password"
             placeholder="Enter Password"
             value={formDetails.password}
             onChange={changeHandler}
-            className=""
           />
           <BiSolidHide className="text-red-500 size-6 relative bottom-8 btnn" />
           <span>
-            <Link to="/forgot-password" className="text-sm text-red-500">Forgot Password?</Link>
+            <Link to="/forgot-password" className="text-sm text-red-500">
+              Forgot Password?
+            </Link>
           </span>
           <br />
           <button className="signin loginbtnn">Log In</button>
           <span className="firsttime pt-1">
-            <Link to="/Signup" className="" >First time user? REGISTER HERE</Link>
+            <Link to="/Signup" className="">
+              First time user? REGISTER HERE
+            </Link>
           </span>
         </form>
       </div>

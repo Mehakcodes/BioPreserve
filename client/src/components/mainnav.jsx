@@ -13,25 +13,30 @@ const MainNav = ({isLogged, setIsLogged}) => {
     // },
     {
       path: "/green_investment/green_projects",
-      title: "Green Investment",
+      title: "Donate Now",
+    },
+    {
+      path: "/Upcoming-events",
+      title: "Upcoming Events",
+    },
+    {
+      path: "/store",
+      title: "Store",
     },
     // {
     //   path: "/CreditHub",
     //   title: "CreditHub",
     // },
-    {
-      path: "/Impact",
-      title: "Impact",
-    },
-    {
-      path: "/Projects",
-      title: "Projects",
-    },
+    // {
+    //   path: "/Projects",
+    //   title: "Projects",
+    // },
 
     {
       path: "/Publish",
       title: "Publish your campaign",
     },
+    
 
     // {
     //   path: "/CarbonCoin",
@@ -61,7 +66,7 @@ const MainNav = ({isLogged, setIsLogged}) => {
 
   return (
     <nav className="main-nav flex place-content-between bg-black text-white items-center h-14 text-xl">
-      <h1 className="px-10 font-bold">EcoFin Horizon</h1>
+      <h1 className="px-10 font-bold">EcoPreserve Horizon</h1>
       <div className="flex h-full items-stretch">
         {NavItems.map((item, index) => (
           <NavLink
