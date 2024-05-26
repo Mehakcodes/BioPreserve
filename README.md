@@ -105,7 +105,7 @@ By contributing to this platform, you are making a tangible impact on biodiversi
 
 ---
 
-This README was made with ❤️ by Deew.
+This README is made with ❤️ for Biodiversity Conservation and Cultural Heritage Preservation by Team Cirby.
 
 
 
