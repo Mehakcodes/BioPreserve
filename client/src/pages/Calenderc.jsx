@@ -98,18 +98,28 @@ const Calenderc = () => {
   const [events, setEvents] = useState(eventData);
 
   return (
-    <div style={{ height: '100vh' }}>
-      <Calendar
-        className='black-calendar text-white'
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: '100%' }}
-        components={{
-          event: Event,
-        }}
-      />
+    <div className='bg-black w-full '>
+      <div className='text-white w-full flex flex-col items-center py-10 gap-8'>
+        <h1 className='text-8xl'>
+          Event Calendar
+        </h1>
+        <h2 className='text-2xl font-bold'>
+          Explore and participate in upcoming events
+        </h2>
+      </div >
+      <div className='flex w-full justify-center pb-32'>
+        <Calendar
+          className='black-calendar text-white px-20 w-[90dvw]'
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: '100%' }}
+          components={{
+            event: Event,
+          }}
+        />
+      </div>
     </div>
   );
 };
