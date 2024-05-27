@@ -5,6 +5,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../App.css';
 
 const localizer = momentLocalizer(moment);
+
 const eventData = [
   {
     id: 1,
@@ -85,6 +86,7 @@ const eventData = [
   },
 ];
 
+
 const Event = ({ event }) => (
   <span>
     <strong>{event.title}</strong>
@@ -95,32 +97,102 @@ const Event = ({ event }) => (
 
 const Calenderc = () => {
   const [events, setEvents] = useState(eventData);
+  const [newEvent, setNewEvent] = useState({
+    title: '',
+    location: '',
+    start: '',
+    end: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewEvent((prevEvent) => ({
+      ...prevEvent,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const start = new Date(newEvent.start);
+    const end = new Date(newEvent.end);
+
+    const newEventObj = {
+      id: events.length + 1,
+      title: newEvent.title,
+      location: newEvent.location,
+      start,
+      end,
+    };
+
+    setEvents((prevEvents) => [...prevEvents, newEventObj]);
+    setNewEvent({
+      title: '',
+      location: '',
+      start: '',
+      end: ''
+    });
+  };
 
   return (
-    <div className='bg-black w-full '>
-      <div className='text-white w-full flex flex-col items-center py-10 gap-8'>
-        <h1 className='text-8xl'>
-          Event Calendar
-        </h1>
-        <h2 className='text-2xl font-bold'>
-          Explore and participate in upcoming events
-        </h2>
-      </div >
-      <div className='flex w-full justify-center pb-32'>
-        <Calendar
-          className='black-calendar text-white px-20 w-[90dvw]'
-          localizer={localizer}
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          style={{ height: '100%' }}
-          components={{
-            event: Event,
-          }}
+    <div style={{ height: '100vh' }}>
+              <form onSubmit={handleSubmit} className="mb-4 mt-4 p-4 bg-white rounded shadow-md space-y-4">
+        <input
+          type="text"
+          name="title"
+          placeholder="Event Title"
+          value={newEvent.title}
+          onChange={handleInputChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded"
         />
-      </div>
+        <input
+          type="text"
+          name="location"
+          placeholder="Event Location"
+          value={newEvent.location}
+          onChange={handleInputChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded"
+        />
+        <input
+          type="datetime-local"
+          name="start"
+          placeholder="Start Date and Time"
+          value={newEvent.start}
+          onChange={handleInputChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded"
+        />
+        <input
+          type="datetime-local"
+          name="end"
+          placeholder="End Date and Time"
+          value={newEvent.end}
+          onChange={handleInputChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded"
+        />
+        <button type="submit" className="w-full py-2 px-4 bg-green-700 text-white rounded hover:bg-blue-700">Add Event</button>
+      </form>
+
+<div className='text-4xl font-bold text-center'>
+  Joins Events
+</div>
+<br/>
+      <Calendar
+        className='black-calendar text-white'
+        localizer={localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: '100%' }}
+        components={{
+          event: Event,
+        }}
+      />
     </div>
   );
 };
 
-export default Calenderc;
+export default Calenderc

@@ -26,37 +26,15 @@ black-calendar {
 .black-calendar .rbc-time-view,
 .black-calendar .rbc-agenda-view {
   background-color: black;
-  position: static ;
-  display: block;
-  
- 
 }
 
 .black-calendar .rbc-event {
-  background-color: #052f11;
+  background-color: #0a7027;
   color: white;
-  border-radius: 0;
-  border-right:white solid 1px ;
-  border-left:white solid 1px ;
-}
-
-.black-calendar .rbc-row-segment{
-  
-  padding: 1rem 0rem 0rem 0rem;
-}
-
-.rbc-day-slot .rbc-events-container {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  margin-right: 0px !important;
-  top:0;
 }
 
 .black-calendar .rbc-day-bg {
   background-color: black;
-  
 }
 
 .black-calendar .rbc-time-header {
@@ -75,7 +53,7 @@ black-calendar {
 }
 
 .black-calendar .rbc-today {
-  background-color: #f8f8f837;
+  background-color: #73aa6b;
 }
 
 .black-calendar .rbc-current-time-indicator {
