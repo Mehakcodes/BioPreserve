@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { IoTimeOutline } from "react-icons/io5";
 import Web3 from "web3";
@@ -6,6 +6,7 @@ import FundRaisingContract from "../contracts/FundRaising.json";
 import ProjectContract from "../contracts/Project.json";
 
 const Invest = () => {
+  const navigate = useNavigate();
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [fundRaisingContract, setFundRaisingContract] = useState(null);
@@ -26,11 +27,11 @@ const Invest = () => {
       if (fundRaisingNetwork && projectNetwork) {
         const fundRaisingInstance = new web3.eth.Contract(
           FundRaisingContract.abi,
-          fundRaisingNetwork.address
+          fundRaisingNetwork[networkId].address
         );
         const projectInstance = new web3.eth.Contract(
           ProjectContract.abi,
-          projectNetwork.address
+          projectNetwork[networkId].address
         );
         setFundRaisingContract(fundRaisingInstance);
         setProjectContract(projectInstance);
@@ -42,9 +43,10 @@ const Invest = () => {
     }
   };
 
-  // Function to contribute funds to a project
-  const contributeToProject = async () => {
+  const contributeToProject = async (e) => {
+    e.preventDefault();
     try {
+      console.log("here");
       await projectContract.methods.contribute().send({
         from: accounts[0],
         value: web3.utils.toWei(contributionAmount, "ether"),
@@ -53,13 +55,15 @@ const Invest = () => {
     } catch (error) {
       console.error("Error contributing to project:", error);
     }
+    
+    navigate("/projects");
   };
 
   const location = useLocation();
   const details = location.state.project;
   return (
     <div className="w-full h-full px-5 bg-black text-white">
-      <h1 className="pt-10 text-6xl ">{details.project_name}</h1>
+      <h1 className="pt-10 text-6xl ">{details.projectTitle}</h1>
       <p className="mb-10 mt-3 text-xl">{details.company_name}</p>
       <img
         src={details.project_image}
@@ -73,7 +77,7 @@ const Invest = () => {
       <div className="flex justify-start items-center my-8 gap-1  ">
         <p className=" flex items-center gap-1">
           <IoTimeOutline />
-          {details.project_daysleft} days left
+          {details.deadline} days left
         </p>
         <p>|</p>
         <p> {details.project_percent}% funded </p>
@@ -81,10 +85,10 @@ const Invest = () => {
       <div className="flex justify-between flex-wrap">
         <div className="min-w-[40rem] max-w-[50rem]">
           <h1 className="text-3xl">Project Description</h1>
-          <p className="my-5">{details.project_description}</p>
+          <p className="my-5">{details.projectDescription}</p>
           <p>
-            <p className="">Goal Amount: {details.project_goal} </p>
-            <p className="">Minimum Donation: {details.project_min}</p>
+            <p className="">Goal Amount: {details.goalAmount} </p>
+            <p className="">Project Deadline: {details.deadline}</p>
           </p>
         </div>
 
@@ -93,7 +97,7 @@ const Invest = () => {
         {accounts.length > 0 ? (
           <div className="form flex flex-col w-fit items-center  justify-center border shadow-md rounded-xl bg-green-100/50 py-5 px-10">
             <p>Connected Account: {accounts[0]}</p>
-            <form action="" method="post" className="flex flex-col">
+            <form onSubmit={contributeToProject} className="flex flex-col">
               <div className="my-2">
                 <label htmlFor="amount" className=" me-3">
                   Amount
@@ -111,7 +115,6 @@ const Invest = () => {
               <div className="flex justify-center">
                 {projectContract && (<button
                   type="submit"
-                  onClick={contributeToProject}
                   className="border rounded-md py-2 m-3 px-6 w-fit bg-green-900/50 text-white "
                 >
                   Contribute

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Web3 from 'web3';
 import FundRaisingContract from "../contracts/FundRaising.json";
 import ProjectContract from "../contracts/Project.json";
+import {useNavigate} from 'react-router-dom';
 
 const PublishCampaign = ({onProjectAdded}) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -23,10 +25,12 @@ const PublishCampaign = ({onProjectAdded}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
 
-    const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545');
+    const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
     const accounts = await web3.eth.requestAccounts();
-    const contractAddress = FundRaisingContract.networks.address;
+    const networkId = await web3.eth.net.getId();
+    const contractAddress = FundRaisingContract.networks[networkId].address;
     const contractABI = FundRaisingContract.abi;
 
     const contract = new web3.eth.Contract(contractABI, contractAddress);
@@ -43,6 +47,7 @@ const PublishCampaign = ({onProjectAdded}) => {
       .send({ from: accounts[0] });
 
     onProjectAdded();
+    navigate("/projects");
   };
     // const [formData, setFormData] = useState({
     //     projectTitle: '',
@@ -65,7 +70,7 @@ const PublishCampaign = ({onProjectAdded}) => {
           <input 
             type="text" 
             id="projectTitle" 
-            name="projectTitle" 
+            name="title" 
             onChange={handleChange} 
             className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
             placeholder="Project Name" 
@@ -75,7 +80,7 @@ const PublishCampaign = ({onProjectAdded}) => {
           <label htmlFor="projectDesc" className="block mb-1">Project Description</label>
             <textarea 
                 id="projectDesc" 
-                name="projectDesc" 
+                name="description" 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2 h-40" 
                 placeholder="Project Description"
@@ -86,7 +91,7 @@ const PublishCampaign = ({onProjectAdded}) => {
             <input
                 type="text"
                 id="projectImageURL"
-                name="projectImageURL"
+                name="imageUrl"
                 onChange={handleChange}
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2"
                 placeholder="Project Image URL"
@@ -97,32 +102,32 @@ const PublishCampaign = ({onProjectAdded}) => {
             <input 
                 type="text" 
                 id="goalAmount" 
-                name="goalAmount" 
+                name="amountToRaise" 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
-                placeholder="Goal Amount (₹)" 
+                placeholder="Goal Amount (eth)" 
             />
         </div>
         <div className="mb-4 text-xl">
             <label htmlFor="minimumContribution" className="block mb-1">Minimum Contribution</label>
             <input 
-                type="number" 
+                type="text" 
                 id="minimumContribution" 
                 name="minimumContribution" 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
-                placeholder="Minimum Contribution (₹)" 
+                placeholder="Minimum Contribution (eth)" 
             />
         </div>
         <div className="mb-4 text-xl">
             <label htmlFor="deadline" className="block mb-1">Deadline</label>
             <input 
-                type="number" 
+                type="text" 
                 id="deadline" 
-                name="deadline" 
+                name="durationInDays" 
                 onChange={handleChange} 
                 className="bg-[#1f201f] w-full border-black border-2 rounded-xl px-4 py-2" 
-                placeholder="Number of days" 
+                placeholder="Number of months" 
             />
         </div>
     

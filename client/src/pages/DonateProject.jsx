@@ -1,29 +1,44 @@
 import ProjectCard from "../components/ProjectCard";
 import Web3 from 'web3';
 import React, { useEffect, useState } from 'react';
+import FundRaisingContract from "../contracts/FundRaising.json";
+import ProjectContract from "../contracts/Project.json";
+
 
 const DonateProject = ({refresh}) => {
 
     const [projects, setProjects] = useState([]);
+    const [web3, setWeb3] = useState(null);
+    const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
     const loadProjects = async () => {
       const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
-      const contractAddress = 'YOUR_CONTRACT_ADDRESS';
-      const contractABI = [/* YOUR_CONTRACT_ABI */];
+      await window.ethereum.enable();
+      setWeb3(web3);
+      const accounts = await web3.eth.getAccounts();
+      setAccounts(accounts);
+      const networkId = await web3.eth.net.getId();
+      const fundRaisingNetwork = FundRaisingContract.networks;
+      const projectNetwork = ProjectContract.networks;
+      const contractAddress = fundRaisingNetwork[networkId].address;
+      const contractABI = FundRaisingContract.abi;
 
       const contract = new web3.eth.Contract(contractABI, contractAddress);
 
       const projectAddresses = await contract.methods.returnAllProjects().call();
+      console.log(projectAddresses);
+
       const projectDetails = await Promise.all(
         projectAddresses.map(async (address) => {
-          const project = new web3.eth.Contract(contractABI, address);
+          const project = new web3.eth.Contract(ProjectContract.abi, address);
           const details = await project.methods.getDetails().call();
           return { address, ...details };
         })
       );
 
       setProjects(projectDetails);
+      console.log(projects);
     };
 
     loadProjects();
@@ -68,8 +83,8 @@ const DonateProject = ({refresh}) => {
             </h1>
             <div className=" display-grid ">
             {
-                reccommended_projects.map((project)=>(
-                    <ProjectCard data={project} />
+                projects.map((project)=>(
+                    <ProjectCard key={project.title} data={project} />
                 ))
             }
 

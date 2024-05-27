@@ -105,8 +105,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.1+commit.df193b15\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"projectStarter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"projectTitle\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"projectDescription\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"projectImgUrl\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"durationInDays\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountToRaise\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minimumContribution\",\"type\":\"uint256\"}],\"name\":\"ProjectStarted\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"returnAllProjects\",\"outputs\":[{\"internalType\":\"contract Project[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"title\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"imgUrl\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"durationInDays\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountToRaise\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minimumContribution\",\"type\":\"uint256\"}],\"name\":\"startNewProject\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"returnAllProjects()\":{\"details\":\"Function to get all projects' contract addresses.\",\"returns\":{\"_0\":\"A list of all projects' contract addreses\"}},\"startNewProject(string,string,string,uint256,uint256,uint256)\":{\"details\":\"Function to start a new project.\",\"params\":{\"amountToRaise\":\"Project goal in hydro\",\"description\":\"Brief description about the project\",\"durationInDays\":\"Project deadline in days\",\"minimumContribution\":\"minimum amount a contibutor can give\",\"title\":\"Title of the project to be created\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/fundRaising.sol\":\"FundRaising\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Project.sol\":{\"keccak256\":\"0x8de8d6995adae2bb78275bab82372391a886980d3e78d7f4713ea5f7517d935a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://30eac04f7e9bda262eeec8b877ae00654f767f1231b4315e2b129f7295ba2129\",\"dweb:/ipfs/QmcYjTb5KUY7fZg1Re5ZNYoqhhnbG4d3KJVfqcMpGEVmsV\"]},\"project:/contracts/fundRaising.sol\":{\"keccak256\":\"0x42a3e55689b79b6e53bd5dd824487abeabda1ba1b288b6e14ee9ed083a166d5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4946a61ff9fdf2255671e01ef8f60745e5557952edfcb616272b71ea83982760\",\"dweb:/ipfs/QmfLs8dpMFSJiBhjvtHKaxvc1vCNohVpSoMfxJeMZ2yWjL\"]},\"project:/interfaces/OpenZepplin/SafeMath.sol\":{\"keccak256\":\"0x30a779d1d47a1c8a795e93f236a4931ca0f2c384819759f9c47de31fbe2686dc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ffb239453561e6e8dba3c3bb7fb4bb21f389681b6ae922e0b965c370de7b8455\",\"dweb:/ipfs/QmZtQmZkgox2Ws6s4CMZ7SBVUxN3VWokDjQgb19WB34QSt\"]}},\"version\":1}",
@@ -7503,16 +7502,21 @@
     "version": "0.8.1+commit.df193b15.Emscripten.clang"
   },
   "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xC61a53E42c4780f11B57D2C05f7D1FDD9Df71ce6",
+      "transactionHash": "0xb741e75fa113066b354c711a458cec25262de6b9249610531b75ab5056a77e55"
+    },
     "11155111": {
       "events": {},
       "links": {},
-      "address": "0x2Ea829981c24eB76E80bCec7fE81915Bea94AAa7",
-      "transactionHash": "0x8b4a9ec250825859217362349d3e1aefbecd1dd19f0315ae41525916239a5f6b"
+      "address": "0x4b971f2B84d560aE9384117D5dac2086B067c34b",
+      "transactionHash": "0xc8a717a5e6956dc0623c26d1e49a81cdd49e72495b3062bea1f0904ad8e9172b"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-05-26T08:11:20.903Z",
-  "networkType": "ethereum",
+  "updatedAt": "2024-05-27T11:42:31.701Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

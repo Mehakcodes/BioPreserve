@@ -10,17 +10,17 @@ const ProjectCard = (props) => {
         <div className="w-[25rem] h-[33rem] mx-1">
         <div className="card rounded-xl p-4 w-[25rem] h-[33rem] flex flex-col hover:scale-105 transition-all ease-in-out bg-white ">
 
-        <img src={details.project_image} alt="placeholder" className="w-full h-[14.5rem] mb-2 rounded-xl"/>
+        <img src={details.projectImgUrl} alt="placeholder" className="w-full h-[14.5rem] mb-2 rounded-xl"/>
 
-        <h1 className="text-xl font-bold " >{details.project_name }</h1>
+        <h1 className="text-xl font-bold " >{details.projectTitle}</h1>
         <p className="text-gray-500 text-sm details">{details.company_name}</p> 
         <div className="flex justify-start items-center mt-2 gap-1 pb-3 text-gray-800 ">
-            <p className=" flex items-center gap-1"><IoTimeOutline/>{details.project_daysleft} days left</p>
+            <p className=" flex items-center gap-1"><IoTimeOutline/>{details.projectDeadline} days left</p>
             <p >|</p>
             <p > {details.project_percent}% funded </p>
         </div>
         
-        <p className="text-sm description">{details.project_description.split(" ").slice(0,40).join(" ")+" . . ."}</p>
+        <p className="text-sm description">{details.projectDescription.split(" ").slice(0,40).join(" ")+" . . ."}</p>
         <div className="flex flex-wrap mt-4">
         <p className="me-2 border-solid border px-2 rounded-xl text-sm hover:bg-green-400/10">{details.project_category}</p>
         <p className="border-solid border px-2 rounded-xl text-sm  hover:bg-green-400/10">{details.project_location}</p>

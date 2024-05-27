@@ -2433,16 +2433,21 @@
     "version": "0.8.1+commit.df193b15.Emscripten.clang"
   },
   "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x1f5236f2B6FBD66424042668B3F963B69DF2A71d",
+      "transactionHash": "0x696c5224b85ed8e6e16cb492754134348a2129f54c0039ec10574850516dda44"
+    },
     "11155111": {
       "events": {},
       "links": {},
-      "address": "0xCAB06eDDAC6F8052231e85891a9638EfbEDDbEc0",
-      "transactionHash": "0x6df63a34254fbc8b7940f179013406e8c6687ccd34d8010110fff578b887c276"
+      "address": "0xCEa2f40e3302dC68986bA902A727fbE44D9CE846",
+      "transactionHash": "0x13595bc133d0f15e0d0cc5d5059fc8b1707997f680758a6bfb25d85171d82d58"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-05-26T08:11:20.977Z",
-  "networkType": "ethereum",
+  "updatedAt": "2024-05-27T11:42:31.719Z",
   "devdoc": {
     "details": "Wrappers over Solidity's arithmetic operations with added overflow checks. Arithmetic operations in Solidity wrap on overflow. This can easily result in bugs, because programmers usually assume that an overflow raises an error, which is the standard behavior in high level programming languages. `SafeMath` restores this intuition by reverting the transaction when an operation overflows. Using this library instead of the unchecked operations eliminates an entire class of bugs, so it's recommended to use it always.",
     "kind": "dev",

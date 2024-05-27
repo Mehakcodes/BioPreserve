@@ -33,7 +33,6 @@ const [refresh, setRefresh] = useState(false);
   return (
     
     <div className="overflow-x-hidden">
-      <EthProvider>
       <header>
     
         {isLogged ? <MainNav isLogged={isLogged} setIsLogged={setIsLogged}/> : <Navbar/>}
@@ -68,7 +67,6 @@ const [refresh, setRefresh] = useState(false);
         </Routes>
       </div>
       <Footer/>
-    </EthProvider>
     </div>
   );
 }
