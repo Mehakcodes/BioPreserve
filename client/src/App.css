@@ -12,8 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.black-calendar {
+black-calendar {
   background-color: black;
   color: white;
 }
@@ -27,6 +26,10 @@
 .black-calendar .rbc-time-view,
 .black-calendar .rbc-agenda-view {
   background-color: black;
+  position: static ;
+  display: block;
+  
+ 
 }
 
 .black-calendar .rbc-event {
@@ -54,13 +57,12 @@
 }
 
 .black-calendar .rbc-today {
-  background-color: #73aa6b;
+  background-color: #f8f8f837;
 }
 
 .black-calendar .rbc-current-time-indicator {
   background-color: red;
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
