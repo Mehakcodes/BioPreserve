@@ -14,6 +14,7 @@ contract Project {
     uint256 public minimumContribution;
     string public title;
     string public description;
+    string public imgUrl;
     State public state = State.Fundraising; // initialize on create
     mapping(address => uint256) public contributions;
     uint256 public totalContributors;
@@ -59,11 +60,13 @@ contract Project {
         address payable projectStarter,
         string memory projectTitle,
         string memory projectDescription,
+        string memory projectImgUrl,
         uint256 _minimumContribution
     ) public {
         creator = projectStarter;
         title = projectTitle;
         description = projectDescription;
+        imgUrl = projectImgUrl;
         goal = _goal;
         minimumContribution = _minimumContribution;
         deadline = block.number + _deadline;
@@ -122,6 +125,7 @@ contract Project {
             address projectStarter,
             string memory projectTitle,
             string memory projectDescription,
+            string memory projectImgUrl,
             uint256 projectDeadline,
             uint256 currentAmount,
             uint256 goalAmount
@@ -130,6 +134,7 @@ contract Project {
         projectStarter = creator;
         projectTitle = title;
         projectDescription = description;
+        projectImgUrl = imgUrl;
         projectDeadline = deadline;
         currentAmount = raisedAmount;
         goalAmount = goal;

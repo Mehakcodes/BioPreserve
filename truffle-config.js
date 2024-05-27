@@ -42,12 +42,12 @@
  */
 
 require('dotenv').config();
-const { MNEMONIC, PROJECT_ID } = process.env;
+const { MNEMONICS, PROJECT_ID, PRIVATE_KEY } = process.env;
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
-  contracts_build_directory: "./frontend/client/src/contracts",
+  contracts_build_directory: "./client/src/contracts",
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -67,7 +67,7 @@ module.exports = {
     //
     // development: {
     //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 7545,            // Standard Ethereum port (default: none)
+    //  port: 8545,            // Standard Ethereum port (default: none)
     //  network_id: "*",       // Any network (default: none)
     // },
     //
@@ -84,8 +84,14 @@ module.exports = {
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
     sepolia: {
-      provider: () => new HDWalletProvider(MNEMONIC, `https://eth-sepolia.g.alchemy.com/v2/${PROJECT_ID}`),
-      network_id: 5,       // Goerli's id
+      provider: () => new HDWalletProvider({mnemonic: {
+        phrase: MNEMONICS
+      },
+      providerOrUrl: `https://eth-sepolia.g.alchemy.com/v2/${PROJECT_ID}`,
+      numberOfAddresses: 1,
+      shareNonce: true,
+    }),
+      network_id: 11155111,       // Goerli's id
       confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )

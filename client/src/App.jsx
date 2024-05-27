@@ -18,6 +18,11 @@ import { useState , useEffect} from "react";
 
 function App() {
 const [isLogged, setIsLogged] = useState(false);
+const [refresh, setRefresh] = useState(false);
+
+  const handleProjectAdded = () => {
+    setRefresh(!refresh);
+  };
 
   useEffect(() => {
     const userLoggedIn = localStorage.getItem("customer");
@@ -37,8 +42,8 @@ const [isLogged, setIsLogged] = useState(false);
       <div>
         <Routes>
         <Route path="/" element={<Home />} />
-          <Route path="/Projects" element={<DonateProject/>} />
-          <Route path="/Publish" element={<PublishCampaign/>} />
+          <Route path="/Projects" element={<DonateProject refresh={refresh}/>} />
+          <Route path="/Publish" element={<PublishCampaign onProjectAdded={handleProjectAdded}/>} />
           <Route path="/Upcoming-events" element={<Calenderc />} />
           <Route path="/store" element={<Store />} />
 

@@ -21,8 +21,8 @@ const Invest = () => {
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
       const networkId = await web3.eth.net.getId();
-      const fundRaisingNetwork = FundRaisingContract.networks[networkId];
-      const projectNetwork = ProjectContract.networks[networkId];
+      const fundRaisingNetwork = FundRaisingContract.networks;
+      const projectNetwork = ProjectContract.networks;
       if (fundRaisingNetwork && projectNetwork) {
         const fundRaisingInstance = new web3.eth.Contract(
           FundRaisingContract.abi,
@@ -90,7 +90,6 @@ const Invest = () => {
         {accounts.length > 0 ? (
           <div className="form flex flex-col w-fit items-center  justify-center border shadow-md rounded-xl bg-green-100/50 py-5 px-10">
             <p>Connected Account: {accounts[0]}</p>
-            <h1 className="mb-3 text-lg font-semibold">Invest Now</h1>
             <form action="" method="post" className="flex flex-col">
               <div className="my-2">
                 <label htmlFor="amount" className=" me-3">
@@ -99,6 +98,7 @@ const Invest = () => {
                 <input
                   type="text"
                   name="amount"
+                  className="text-black"
                   id="amount"
                   value={contributionAmount}
                   onChange={(e) => setContributionAmount(e.target.value)}
