@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -108,7 +109,7 @@ const Calenderc = () => {
       </div >
       <div className='flex w-full justify-center pb-32'>
         <Calendar
-          className='black-calendar text-white px-20 w-[70dvw] '
+          className='black-calendar text-white px-20 w-[90dvw]'
           localizer={localizer}
           events={events}
           startAccessor="start"
